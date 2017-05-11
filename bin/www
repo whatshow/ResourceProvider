@@ -1,0 +1,76 @@
+#!/usr/bin/env node
+/*** 模块引用 ***/
+var app = require('../app');
+var os = require('os');
+var debug = require('debug')('Catalog:server');//('MiddleWare_HeartData:server');
+var http = require('http');
+
+
+//服务器管理对象（注册一些标准化方法）
+var ServerManager = {
+  /**
+   * Normalize a port into a number, string, or false.
+   * @val                 表示端口好的其它类型
+   */
+  normalizePort:  function(val) {
+    var port = parseInt(val, 10);
+    if (isNaN(port)) {
+      return val;                                       // named pipe
+    }
+    if (port >= 0) {
+      return port;                                      // port number
+    }
+    return false;
+  },
+  //http相关内容
+  http:{
+    /**
+     * Event listener for HTTP server "error" event.
+     */
+    onError:  function(error){
+      if (error.syscall !== 'listen') {
+        throw error;
+      }
+
+      var bind = typeof port === 'string'
+          ? 'Pipe ' + port
+          : 'Port ' + port;
+
+      // handle specific listen errors with friendly messages
+      switch (error.code) {
+        case 'EACCES':
+          console.error(bind + ' requires elevated privileges');
+          process.exit(1);
+          break;
+        case 'EADDRINUSE':
+          console.error(bind + ' is already in use');
+          process.exit(1);
+          break;
+        default:
+          throw error;
+      }
+    },
+    /**
+     * Event listener for HTTP server "listening" event.
+     */
+    onListening:  function(){
+      var addr = server.address();
+      var bind = typeof addr === 'string'
+          ? 'pipe ' + addr
+          : 'port ' + addr.port;
+      debug('Listening on ' + bind);
+    }
+  }
+};
+
+
+/*** 开启HTTP服务器 ***/
+//Get port from environment and store in Express.
+var port = ServerManager.normalizePort(process.env.PORT || '8080');
+app.set('port', port);
+//Create HTTP server.
+var server = http.createServer(app);
+//Listen on provided port, on all network interfaces.
+server.listen(port);
+server.on('error', ServerManager.http.onError);
+server.on('listening', ServerManager.http.onListening);
