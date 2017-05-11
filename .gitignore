@@ -41,5 +41,4 @@ jspm_packages
 .idea/
 /.idea
 /Resource/*
-!Resource
 
