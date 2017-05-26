@@ -8,9 +8,6 @@ module.exports = {
       }
   },
   http:{
-      port:                     3000
-  },
-  websocket:{
-      port:                     3000
+      port:                     8000
   }
 };
