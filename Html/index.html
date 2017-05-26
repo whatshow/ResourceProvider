@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>资源分发加速服务器</title>
+    <link rel="stylesheet" href="css/site.css"/>
+
+    <!-- jquery -->
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+
+    <!-- boostrap -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- 引入Chart.js -->
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
+</head>
+<body>
+<!-- 头部 -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">资源列表</a>
+        </div>
+    </div>
+</nav>
+<article class="Main">
+    <!-- 资源列表 -->
+    <div class="panel panel-warning">
+        <div class="panel-heading">上传资源</div>
+        <form class="panel-body" action="/file/upload" method="post" enctype="multipart/form-data">
+            <input id="file" name="file" type="file" style="display:inline-block"/>
+            <button class="btn btn-success" type="submit">提交</button>
+        </form>
+    </div>
+    <!-- 资源列表 -->
+    <div class="panel panel-info">
+        <div class="panel-heading">资源列表</div>
+        <table class="panel-body table table-striped">
+            <thead>
+                <tr><th>序号</th><th>文件名</th><th>URL</th><th>MD5</th><th>删除</th></tr>
+            </thead>
+            <tbody id="filelist"></tbody>
+        </table>
+    </div>
+</article>
+
+<!-- 开启js -->
+<script src="js/index.js"></script>
+</body>
+</html>

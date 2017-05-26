@@ -1,4 +1,6 @@
 module.exports = {
+  hostprefix:                   "//192.168.1.1",
+  
   resource:{
       url:                      "/",
       servlets:{

@@ -1,0 +1,21 @@
+{
+  "name": "资源分发服务器",
+  "homepage": "https://github.com/whatshow/ResourceProvider",
+  "authors": [
+    "quxinwei <quxinwei@pekon.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.5.0"
+  }
+}

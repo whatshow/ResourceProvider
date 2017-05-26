@@ -1,0 +1,12 @@
+.Logo{
+    display:            block;
+    width:              35px;
+}
+.Main{
+    margin-top:         52px;
+    padding:            20px;
+}
+
+tr>th, td{
+    text-align:         center;
+}
