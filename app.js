@@ -33,6 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 /*** 静态资源资源 ***/
+//ppdf框架
+app.use("/", express.static(path.join(__dirname, '../P2P-Dispatch-Framework')));
 //管理页面
 app.use("/", express.static(path.join(__dirname, 'Html')));
 //发送的资源
